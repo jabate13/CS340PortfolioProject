@@ -20,18 +20,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(CORS());
 
 // Query Strings
-const selectQuery = 'SELECT * FROM workouts';
-const insertQuery = "INSERT INTO workouts (`name`, `reps`, `weight`, `lbs`, `date`) VALUES (?, ?, ?, ?, ?)";
-const updateQuery = "UPDATE workouts SET name=?, reps=?, weight=?, lbs=?, date=? WHERE id=? ";
-const deleteQuery = "DELETE FROM workouts WHERE id=?";
-const dropTableQuery = "DROP TABLE IF EXISTS workouts";
-const makeTableQuery = "CREATE TABLE workouts (" +
-                        "id INT PRIMARY KEY AUTO_INCREMENT," +
+const selectQuery = 'SELECT * FROM PLANETS';
+const insertQuery = "INSERT INTO PLANETS (`name`, `size`, `color`) VALUES (?, ?, ?)";
+const updateQuery = "UPDATE PLANETS SET name=?, size=?, color=? WHERE planetID=? ";
+const deleteQuery = "DELETE FROM PLANETS WHERE planetID=?";
+const dropTableQuery = "DROP TABLE IF EXISTS PLANETS";
+const makeTableQuery = "CREATE TABLE PLANETS (" +
+                        "planetID INT PRIMARY KEY AUTO_INCREMENT," +
                         "name VARCHAR(255) NOT NULL," +
-                        "reps INT," +
-                        "weight INT," +
-                        "lbs BOOLEAN," +
-                        "date DATE)";
+                        "size INT NOT NULL," +
+                        "color VARCHAR(255) NOT NULL)"
 
 // Routing
 
@@ -79,7 +77,7 @@ app.put('/',function(req,res,next){
 app.post('/', function(req, res, next){
   var context = {};
   var { name, reps, weight, lbs, date } = req.body; //Object destructuring
-  
+
   console.log(name, reps, weight, lbs, date);
   pool.query(insertQuery, [name, reps, weight, lbs, date], function(err, result){
     if(err){
