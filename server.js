@@ -7,9 +7,9 @@ var CORS = require('cors');
 var mysql = require('mysql');
 var pool = mysql.createPool({
   host : 'classmysql.engr.oregonstate.edu',
-  user : 'cs290_abatej',
+  user : 'cs340_abatej',
   password : '5225',
-  database : 'cs290_abatej'
+  database : 'cs340_abatej'
 });
 
 app.use(express.static('public'));
