@@ -20,12 +20,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(CORS());
 
 // Query Strings
-const selectQuery = 'SELECT * FROM PLANETS';
-const insertQuery = "INSERT INTO PLANETS (`name`, `size`, `color`) VALUES (?, ?, ?)";
-const updateQuery = "UPDATE PLANETS SET name=?, size=?, color=? WHERE planetID=? ";
-const deleteQuery = "DELETE FROM PLANETS WHERE planetID=?";
-const dropTableQuery = "DROP TABLE IF EXISTS PLANETS";
-const makeTableQuery = "CREATE TABLE PLANETS (" +
+const selectQuery = 'SELECT * FROM Planets';
+const insertQuery = "INSERT INTO Planets (`name`, `size`, `color`) VALUES (?, ?, ?)";
+const updateQuery = "UPDATE Planets SET name=?, size=?, color=? WHERE planetID=? ";
+const deleteQuery = "DELETE FROM Planets WHERE planetID=?";
+const dropTableQuery = "DROP TABLE IF EXISTS Planets";
+const makeTableQuery = "CREATE TABLE Planets (" +
                         "planetID INT PRIMARY KEY AUTO_INCREMENT," +
                         "name VARCHAR(255) NOT NULL," +
                         "size INT NOT NULL," +
