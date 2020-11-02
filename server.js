@@ -1,6 +1,7 @@
-//Boilerplate stuffs
+//Boilerplate stuffs For handlebars and express
 var express = require('express');
 var app = express();
+var handlebars = require('express-handlebars');
 var CORS = require('cors');
 
 // Connect to the database
@@ -13,6 +14,7 @@ var pool = mysql.createPool({
 });
 
 app.use(express.static('public'));
+app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
 app.set('port', 4852);
 app.use(express.json());

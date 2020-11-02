@@ -1,0 +1,13 @@
+<h1>GET Request Recieved</h1>
+<table style="border-style: solid">
+  <caption>URL Query Data</caption>
+  <tr>
+    {{#each dataList}}
+      <th style="border-style:solid; border-width:thin">{{this.name}}</th>
+    {{/each}}
+  </tr>
+  <tr>
+    {{#each dataList}}
+      <td style="border-style:solid; border-width:thin">{{this.value}}</td>
+    {{/each}}
+  </tr>
